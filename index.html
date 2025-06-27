@@ -34,34 +34,11 @@
     .message {
       display: none;
       font-size: 18px;
-      padding: 40px 20px 20px;
-      position: relative;
+      padding: 20px;
       background-color: #ffffff;
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      width: 300px;
-      margin: 0 auto;
       color: #0f2747;
-    }
-
-    .message::before,
-    .message::after {
-      content: "";
-      position: absolute;
-      width: 100px;
-      height: 160px;
-      background: #ffffff;
-      border-radius: 50%;
-      top: -80px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-
-    .message::before {
-      left: -50px;
-    }
-
-    .message::after {
-      right: -50px;
     }
 
     .message.active {
@@ -69,26 +46,59 @@
     }
 
     .buttons {
-      margin: 20px 0;
+      margin: 20px auto;
       flex-wrap: wrap;
       display: flex;
       justify-content: center;
+      gap: 10px;
+      max-width: 600px;
     }
 
     .buttons button {
-      margin: 5px;
-      padding: 8px 12px;
+      width: 50px;
+      height: 45px;
+      margin: 6px;
+      background-color: #0d3b66;
+      color: white;
       font-size: 14px;
       border: none;
-      background-color: #bcd3f2;
-      color: #0a1c33;
-      border-radius: 5px;
+      position: relative;
       cursor: pointer;
+      transform: rotate(-45deg);
+      border-radius: 50% 50% 0 0;
       transition: background-color 0.3s;
     }
 
+    .buttons button::before,
+    .buttons button::after {
+      content: "";
+      position: absolute;
+      width: 50px;
+      height: 45px;
+      background-color: #0d3b66;
+      border-radius: 50%;
+    }
+
+    .buttons button::before {
+      top: -25px;
+      left: 0;
+    }
+
+    .buttons button::after {
+      top: 0;
+      left: 25px;
+    }
+
+    .buttons button span {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      transform: rotate(45deg);
+      font-weight: bold;
+    }
+
     .buttons button:hover {
-      background-color: #a2c0e8;
+      background-color: #1459a6;
     }
   </style>
 </head>
@@ -140,7 +150,7 @@
       carousel.appendChild(msgDiv);
 
       const btn = document.createElement("button");
-      btn.innerText = `${index + 1}h`;
+      btn.innerHTML = `<span>${index + 1}h</span>`;
       btn.onclick = () => {
         document.querySelectorAll('.message').forEach(el => el.classList.remove("active"));
         msgDiv.classList.add("active");
