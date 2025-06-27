@@ -14,35 +14,67 @@
       padding: 0;
       text-align: center;
     }
+
     header {
       background-color: #dce6f2;
       padding: 30px 20px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+
     header h1 {
       font-size: 28px;
       color: #0d3b66;
     }
+
     .carousel-container {
       max-width: 600px;
       margin: 30px auto;
-      padding: 20px;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+
     .message {
       display: none;
       font-size: 18px;
-      padding: 20px;
+      padding: 40px 20px 20px;
+      position: relative;
+      background-color: #ffffff;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      width: 300px;
+      margin: 0 auto;
       color: #0f2747;
     }
+
+    .message::before,
+    .message::after {
+      content: "";
+      position: absolute;
+      width: 100px;
+      height: 160px;
+      background: #ffffff;
+      border-radius: 50%;
+      top: -80px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .message::before {
+      left: -50px;
+    }
+
+    .message::after {
+      right: -50px;
+    }
+
     .message.active {
       display: block;
     }
+
     .buttons {
       margin: 20px 0;
+      flex-wrap: wrap;
+      display: flex;
+      justify-content: center;
     }
+
     .buttons button {
       margin: 5px;
       padding: 8px 12px;
@@ -54,6 +86,7 @@
       cursor: pointer;
       transition: background-color 0.3s;
     }
+
     .buttons button:hover {
       background-color: #a2c0e8;
     }
