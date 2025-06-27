@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Délcia - 23 Mensagens de Aniversário</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Georgia", serif;
+      background-color: #fffafc;
+      color: #3e3e3e;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #f4e1e8;
+      padding: 30px 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      font-size: 28px;
+      color: #ae3a75;
+    }
+    .carousel-container {
+      max-width: 600px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .message {
+      display: none;
+      font-size: 18px;
+      padding: 20px;
+    }
+    .message.active {
+      display: block;
+    }
+    .buttons {
+      margin: 20px 0;
+    }
+    .buttons button {
+      margin: 5px;
+      padding: 8px 12px;
+      font-size: 14px;
+      border: none;
+      background-color: #e6bfd9;
+      color: #551f44;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .buttons button:hover {
+      background-color: #d89ebd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Para Délcia, com carinho 💖</h1>
+    <p>23 mensagens de aniversário, uma para cada hora do dia 🎂</p>
+  </header>
+
+  <div class="buttons" id="buttons"></div>
+
+  <div class="carousel-container" id="carousel"></div>
+
+  <script>
+    const messages = [
+      "Mensagem da 1h: Que teu dia comece com a doçura que tu espalhas no mundo.",
+      "Mensagem da 2h: Enquanto o mundo dorme, meu carinho por ti acorda.",
+      "Mensagem da 3h: Tu és o motivo de sorrisos suaves e pensamentos bonitos.",
+      "Mensagem da 4h: Em cada hora, um detalhe teu que me encanta.",
+      "Mensagem da 5h: Que hoje só exista espaço para alegrias.",
+      "Mensagem da 6h: Acordar pensando em ti já é presente suficiente.",
+      "Mensagem da 7h: Que tua manhã seja leve como teu sorriso.",
+      "Mensagem da 8h: Tua beleza mora em tudo que tu fazes com verdade.",
+      "Mensagem da 9h: Hoje o mundo ganhou uma flor com alma de luz.",
+      "Mensagem da 10h: Teus gestos suaves tornam tudo mais bonito.",
+      "Mensagem da 11h: Feliz de quem cruza o caminho com tua luz.",
+      "Mensagem da 12h: Um meio-dia com gosto de abraço bom pra ti.",
+      "Mensagem da 13h: Tu és poesia mesmo quando o dia é prosa.",
+      "Mensagem da 14h: Que a tarde te trate com carinho, como tu mereces.",
+      "Mensagem da 15h: A leveza que tu carrega é dom raro.",
+      "Mensagem da 16h: Estar perto de ti é se sentir em paz.",
+      "Mensagem da 17h: Até o tempo desacelera pra te ver sorrir.",
+      "Mensagem da 18h: Cada hora do dia é mais bonita por tua causa.",
+      "Mensagem da 19h: Que tua noite venha com paz, como tu me fazes sentir.",
+      "Mensagem da 20h: Uma estrela nova sorriu quando tu nasceste.",
+      "Mensagem da 21h: Te lembrar é como ouvir uma música calma.",
+      "Mensagem da 22h: Que teu coração descanse sabendo que és muito querida.",
+      "Mensagem da 23h: Obrigado por existires. Tu tornas o mundo mais bonito."
+    ];
+
+    const carousel = document.getElementById("carousel");
+    const buttons = document.getElementById("buttons");
+
+    messages.forEach((msg, index) => {
+      const msgDiv = document.createElement("div");
+      msgDiv.className = "message";
+      if (index === 0) msgDiv.classList.add("active");
+      msgDiv.innerText = msg;
+      carousel.appendChild(msgDiv);
+
+      const btn = document.createElement("button");
+      btn.innerText = `${index + 1}h`;
+      btn.onclick = () => {
+        document.querySelectorAll('.message').forEach(el => el.classList.remove("active"));
+        msgDiv.classList.add("active");
+      };
+      buttons.appendChild(btn);
+    });
+  </script>
+</body>
+</html>
